@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+</head>
+<body>
+<h1>首页</h1>
+<!-- 以后我们会越来越倾向于用一句话来作为请求的URL地址，在这样的一句话中使用“/”分隔各个单词 -->
+
+<a th:href="@{/param/one/name/one/value(userName='1111')}">一个名字一个值的情况</a><br/>
+<a th:href="@{/experiment/ajax}">跳转到Ajax页面</a><br/>
+<!--<a th:href="@{'http://localhost:8888/spring/templates/ajax1.html'}">跳转到Ajax页面</a><br/>-->
+
+<form method="post" th:action="@{/save/product}">
+    生产日期：<input name="productDate" type="text" value="1992-10-15 17:15:06"/><br/>
+    产品价格：<input name="productPrice" type="text" value="111,222,333.444"/><br/>
+    <button type="submit">保存</button>
+</form>
+
+
+
+<form method="post" th:action="@{/param/one/name/multi/value}">
+    请选择你最喜欢的球队：
+    <input name="team" type="checkbox" value="Brazil"/>巴西
+    <input name="team" type="checkbox" value="German"/>德国
+    <input name="team" type="checkbox" value="French"/>法国
+    <input name="team" type="checkbox" value="Holland"/>荷兰
+    <input name="team" type="checkbox" value="Italian"/>意大利
+    <input name="team" type="checkbox" value="China"/>中国
+    <br/>
+    <input type="submit" value="保存"/>
+</form>
+
+<form method="post" th:action="@{/emp/save}">
+    姓名：<input name="name" type="text"/><br/>
+    性别：<input name="gender" type="text"/><br/>
+    <input type="submit" value="保存"/>
+</form>
+</body>
+</html>

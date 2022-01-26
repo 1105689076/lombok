@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    username: root
+    password: 1234
+    url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&useSSL=false&serverTimezone=GMT%2B8&allowPublicKeyRetrieval=true&nullCatalogMeansCurrent=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    show-sql: true
+    open-in-view: true
+    hibernate:
+      ddl-auto: update
+  mvc:
+    static-path-pattern: /res/**
+server:
+  port: 8888
+  servlet:
+    context-path: /spring
+    encoding:
+      charset: utf-8
+
+mybatis:
+  config-location:
+

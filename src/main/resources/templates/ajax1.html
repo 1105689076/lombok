@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.14/vue.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.1/axios.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/qs/6.10.1/qs.js"></script>
+</head>
+<body>
+<h1>首页</h1>
+<div id="root">
+    <button @click="experimentOne">实验二</button>
+    <p>{{msg}}</p>
+</div>
+</body>
+<!--<script>
+    var qs = Qs
+    new Vue({
+        el: '#root',
+        data: {
+            msg: ''
+        },
+        methods: {
+            experimentOne: function () {
+                // 请求：发送普通请求参数
+                // 响应：普通文本
+                axios.post("/spring/experiment/one", qs.stringify({
+                    userName: "tom",
+                    password: "123456"
+                }), {
+                    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                }).then(result => {
+                    // 接收服务器端响应的数据
+                    this.msg = result.data
+                })
+
+            }
+        }
+    })
+</script>-->
+<script>
+    new Vue({
+        el: '#root',
+        methods: {
+            experimentOne: function () {
+                // 请求：发送普通请求参数
+                // 响应：普通文本
+                axios.post("/spring/experiment/two", {
+                    "stuId": 55,
+                    "stuName": "tom",
+                    "subjectList": [
+                        {
+                            "subjectName": "java",
+                            "subjectScore": 50.55
+                        },
+                        {
+                            "subjectName": "php",
+                            "subjectScore": 30.26
+                        }
+                    ],
+                    "teacherMap": {
+                        "one": {
+                            "teacherName": "tom",
+                            "teacherAge": 23
+                        },
+                        "two": {
+                            "teacherName": "jerry",
+                            "teacherAge": 31
+                        },
+                    },
+                    "school": {
+                        "schoolId": 23,
+                        "schoolName": "苏州大学"
+                    }
+                }).then(result => {
+                    // 接收服务器端响应的数据
+                    console.log(result.data)
+                })
+
+            }
+        }
+    })
+</script>
+</html>
